@@ -13,13 +13,13 @@ admin_button = ReplyKeyboardMarkup(
    input_field_placeholder="Menudan birini tanlang"
 )
 
-add = ReplyKeyboardMarkup(
-    keyboard=[
-        [
-            KeyboardButton(text="Reklama qo'shish ➕"),
-        ]
+# add = ReplyKeyboardMarkup(
+#     keyboard=[
+#         [
+#             KeyboardButton(text="Reklama qo'shish ➕"),
+#         ]
         
-    ],
-   resize_keyboard=True,
-   input_field_placeholder="Menudan birini tanlang"
-)
+#     ],
+#    resize_keyboard=True,
+#    input_field_placeholder="Menudan birini tanlang"
+# )
