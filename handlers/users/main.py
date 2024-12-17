@@ -237,9 +237,12 @@ async def reklama_rasm_del(message:Message, state:FSMContext):
 @dp.callback_query(F.data == "True")
 async def reklama_true(callbeck:Message,state:FSMContext):
     await callbeck.message.delete()
+    user = callbeck.message.caption.split()[-1]
     photo = callbeck.message.photo[-1].file_id
     text = callbeck.message.caption
     await bot.send_photo(chat_id=CHANNELS[0], photo=photo, caption=text)
+    await bot.send_photo(chat_id=user, photo=photo, caption=text)    
+    await bot.send_message(chat_id=user, text="Tabriklimiz reklama adminga ma'qul keldi\n\nQayta reklama yuborish uchun pastdagi tugmani bosing 👇🏻")
 
 @dp.callback_query(F.data == "False")
 async def reklama_false(callbeck:Message,state:FSMContext):
@@ -250,5 +253,4 @@ async def reklama_false(callbeck:Message,state:FSMContext):
     text = callbeck.message.caption[:-12] # xabar id yo'q
 
     await bot.send_photo(chat_id=user, photo=photo, caption=text)
-    await bot.send_message(chat_id=user, text="Reklama maqul kelmadi boshqatadan to'diring !")
-    
+    await bot.send_message(chat_id=user, text="Afsuski reklama adminga maqul kelmadi \n\nQayta reklama yuborish uchun pastdagi tugmani bosing 👇🏻")
